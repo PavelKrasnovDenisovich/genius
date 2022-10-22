@@ -4,22 +4,22 @@
 
 RELEASE_FLAGS = -O2 -Wall -DNDEBUG
 DEBUG_FLAGS   = -g -O0 -Wall
-RELEASE_EXEC  = hello
-DEBUG_EXEC    = hello-dbg
+RELEASE_EXEC  = Kazino-Royal
+DEBUG_EXEC    = Kazino-Royal-dbg
 #SOURCE        =
 
 all: debug release
 
-debug: hello
+debug: Kazino-Royal
 
-hello-dbg: hello.cpp
+Kazino-Royal-dbg: hello.cpp
 	g++ hello hello.cpp -o hello-dbg 
 
-release: hello
+release: Kazino-Royal
 
-hello: hello.cpp
-	g++ hello hello.cpp -o hello
+Kazino-Royal: Kazino-Royal.cpp
+	g++ Kazino-Royal Kazino-Royal.cpp -o Kazino-Royal
 
 clean:
-	rm -f hello hello-dbg
+	rm -f Kazino-Royal Kazino-Royal-dbg
 
