@@ -1,25 +1,24 @@
-# Усложненный make-file.  Введены переменные для параметров компиляции и исполняемых файлов
+# Усложненный make-file. Введены переменные для параметров компиляции и исполняемых файлов
 
 .PHONY: all debug release clean
 
 RELEASE_FLAGS = -O2 -Wall -DNDEBUG
-DEBUG_FLAGS   = -g -O0 -Wall
-RELEASE_EXEC  = Kazino-Royal
-DEBUG_EXEC    = Kazino-Royal-dbg
-#SOURCE        =
+DEBUG_FLAGS = -g -O0 -Wall
+RELEASE_EXEC = Kazino-Royal
+DEBUG_EXEC = Kazino-Royal-dbg
+SOURCE =Kazino-Royal.cpp
 
 all: debug release
 
-debug: Kazino-Royal
+debug: $(DEBUG_EXEC)
 
-Kazino-Royal-dbg: hello.cpp
-	g++ hello hello.cpp -o hello-dbg 
+Kazino-Royal-dbg: $(SOURCE)
+g++ $(DEBUG_FLAGS) $(SOURCE) -o $(DEBUG_EXEC)
 
-release: Kazino-Royal
+release: $(RELEASE_EXEC)
 
-Kazino-Royal: Kazino-Royal.cpp
-	g++ Kazino-Royal Kazino-Royal.cpp -o Kazino-Royal
+Kazino-Royal: $(SOURCE)
+g++ $(RELEASE_FLAGS) $(SOURCE) -o $(RELEASE_EXEC)
 
 clean:
-	rm -f Kazino-Royal Kazino-Royal-dbg
-
+rm -f $(RELEASE_EXEC) $(DEBUG_EXEC)
